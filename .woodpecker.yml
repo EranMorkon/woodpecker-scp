@@ -17,8 +17,8 @@ steps:
       username: ${CI_REPO_OWNER}
       password:
         from_secret: cb_token
-  when:
-    - branch: develop
+    when:
+      - branch: develop
 
   publish-release:
     image: woodpeckerci/plugin-docker-buildx
