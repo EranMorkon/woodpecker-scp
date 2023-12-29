@@ -8,7 +8,7 @@ To use woodpecker-scp use the following entries in your `.woodpecker.yml`:
 
 ```yaml
 publish:
-    image: git.merp.digital/eranmorkon/woodpecker-scp:latest
+    image: git.merp.digital/eranmorkon/woodpecker-scp:1.1.0
     settings:
         ssh_key:
             from_secret: ssh_key
