@@ -7,9 +7,9 @@ steps:
       platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x
       registry: git.merp.digital
     when:
-        - event: push
-          branch: 
-            exclude: [develop, master]
+      - event: push
+        branch: 
+          exclude: [develop, master]
 
   publish-nightly:
     image: woodpeckerci/plugin-docker-buildx
@@ -17,7 +17,7 @@ steps:
       repo: git.merp.digital/${CI_REPO_OWNER}/woodpecker-scp
       platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x
       registry: git.merp.digital
-      tags: ${CI_COMMIT_BRANCH}
+      tags: develop-${CI_COMMIT_SHA}
       username: ${CI_REPO_OWNER}
       password:
         from_secret: cb_token
@@ -31,9 +31,7 @@ steps:
       repo: git.merp.digital/${CI_REPO_OWNER}/woodpecker-scp
       platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x
       registry: git.merp.digital
-      tags:
-        - latest
-        - ${CI_COMMIT_TAG}
+      tags: ${CI_COMMIT_TAG}
       username: ${CI_REPO_OWNER}
       password:
         from_secret: cb_token
