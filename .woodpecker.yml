@@ -1,0 +1,9 @@
+publish:
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      repo: git.merp.digital/${CI_REPO_OWNER}/woodpecker-scp
+      registry: git.merp.digital
+      tags: develop
+      username: ${CI_REPO_OWNER}
+      password:
+        from_secret: cb_token
