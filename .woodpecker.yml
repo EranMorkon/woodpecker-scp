@@ -18,7 +18,8 @@ steps:
       password:
         from_secret: cb_token
     when:
-      - branch: develop
+      - event: push
+        branch: develop
 
   publish-release:
     image: woodpeckerci/plugin-docker-buildx
