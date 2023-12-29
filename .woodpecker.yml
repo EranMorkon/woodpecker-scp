@@ -21,4 +21,4 @@ steps:
       password:
         from_secret: cb_token
   when:
-    - event: [tag]
+    - event: tag
