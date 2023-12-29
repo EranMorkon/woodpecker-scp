@@ -1,5 +1,13 @@
 steps:
-  publish:
+  build:
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      dry-run: true
+      repo: git.merp.digital/${CI_REPO_OWNER}/woodpecker-scp
+      platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x
+      registry: git.merp.digital
+
+  publish-nightly:
     image: woodpeckerci/plugin-docker-buildx
     settings:
       repo: git.merp.digital/${CI_REPO_OWNER}/woodpecker-scp
@@ -9,6 +17,8 @@ steps:
       username: ${CI_REPO_OWNER}
       password:
         from_secret: cb_token
+  when:
+    - branch: develop
 
   publish-release:
     image: woodpeckerci/plugin-docker-buildx
