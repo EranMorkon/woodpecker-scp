@@ -19,7 +19,7 @@ steps:
         from_secret: cb_token
     when:
       - event: push
-      - branch: develop
+        branch: develop
 
   publish-release:
     image: woodpeckerci/plugin-docker-buildx
