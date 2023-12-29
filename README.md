@@ -1,4 +1,6 @@
 # woodpecker-scp
+[![status-badge](https://ci.merp.digital/api/badges/2/status.svg)](https://ci.merp.digital/repos/2)
+
 woodpecker-scp is a small plugin for weoodpecker, which allows users to upload diretories and files to any server that supports scp.
 
 ## Usage
